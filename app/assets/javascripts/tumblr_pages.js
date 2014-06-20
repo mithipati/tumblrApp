@@ -10,7 +10,10 @@ $(function () {
       contentType: 'application/json',
       dataType: 'jsonp',
       url: url,
-      data: { num: 30 }
+      data: {
+        num: 30,
+        filter: 'text'
+      }
     })
       .done(function (res, status, req) {
         console.log(res);
