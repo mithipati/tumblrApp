@@ -3,3 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
+.tumblr-search {
+  text-align: center;
+  .user-input {
+    max-width: 50rem;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+}
+
