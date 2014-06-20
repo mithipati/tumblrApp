@@ -1,0 +1,2 @@
+module TumblrPagesHelper
+end
