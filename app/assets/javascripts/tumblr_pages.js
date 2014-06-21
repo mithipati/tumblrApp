@@ -5,7 +5,7 @@ $(function () {
     var userName = $('.user-input').val(),
         url = 'http://' + userName + '.tumblr.com/api/read/json';
     // Clear input tag after grabbing data
-    $('.user-input').val("");
+    $('.user-input').val('');
     // Preform AJAX request to update DOM with tumblr posts
     $.ajax({
       contentType: 'application/json',
@@ -17,18 +17,18 @@ $(function () {
       },
       timeout: 3000,
       beforeSend: function () {
+        $('.error-message').text('');
         $('.post-gallery').empty();
       }
     })
       .done(function (res, status, req) {
         _postOutput(res.posts);
-        console.log(res);
       })
       .fail(function (req, status, err) {
-        alert('Could not process your reqeust, there has been an error ' + err);
+        $('.error-message').text('Sorry, could not process your request at this time' + err);
       })
       .always(function () {
-        console.log("Req is complete!");
+        console.log('Request is complete!');
       });
   });
 
@@ -60,7 +60,7 @@ $(function () {
           _addPost(currentPost["video-player-250"], null);
           break;
         default:
-          alert('Sorry, cannot process the type of posts for this user');
+          $('.error-message').text('Sorry, could not load all posts from this tumblr account.');
           break;
       }
     }
