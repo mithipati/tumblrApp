@@ -18,10 +18,11 @@ $(function () {
       timeout: 3000,
       beforeSend: function () {
         $('.error-message').text('');
-        $('.post-gallery').empty();
+        $('.post-gallery').empty().append('<h1>Loading...</h1>');
       }
     })
       .done(function (res, status, req) {
+        console.log(res.posts);
         _postOutput(res.posts);
       })
       .fail(function (req, status, err) {
@@ -29,6 +30,7 @@ $(function () {
       })
       .always(function () {
         console.log('Request is complete!');
+        $('.post-gallery').find('h1').remove();
       });
   });
 
@@ -67,7 +69,7 @@ $(function () {
   }
 
   function _addPost(cont, type) {
-    var baseEl = $('<div />').addClass('post'),
+    var baseEl = $('<a />'),
         mainEl;
 
     if (type === 'simpleText') {
