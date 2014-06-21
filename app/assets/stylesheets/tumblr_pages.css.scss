@@ -3,12 +3,27 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
-.tumblr-search {
+.post-search {
   text-align: center;
   .user-input {
-    max-width: 50rem;
+    width: 33%;
     margin: 0 auto;
     margin-bottom: 10px;
+  }
+}
+
+.post-gallery {
+  text-align: center;
+  margin-top: 75px;
+  .post {
+    width: 400px;
+    height: 250px;
+    display: inline-block;
+    background-color: blue;
+    margin: 5px;
+    p {
+      line-height: 250px;
+    }
   }
 }
 
