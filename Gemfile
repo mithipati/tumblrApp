@@ -9,7 +9,6 @@ group :development do
   gem 'spring'
   gem 'better_errors'
 end
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 gem 'bootstrap-sass', '~> 3.1.1'
