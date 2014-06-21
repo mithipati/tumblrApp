@@ -15,10 +15,14 @@ $(function () {
         num: 30,
         filter: 'text'
       },
-      timeout: 3000
+      timeout: 3000,
+      beforeSend: function () {
+        $('.post-gallery').empty();
+      }
     })
       .done(function (res, status, req) {
         _postOutput(res.posts);
+        console.log(res);
       })
       .fail(function (req, status, err) {
         alert('Could not process your reqeust, there has been an error ' + err);
@@ -76,7 +80,8 @@ $(function () {
       mainEl = $('<div />').html(cont);
     }
 
-    $('.post-gallery').append(baseEl).append(mainEl);
+    mainEl.addClass('post');
+    $('.post-gallery').append(mainEl);
   }
 
 });
